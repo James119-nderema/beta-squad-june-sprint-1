@@ -24,3 +24,14 @@ Follow the steps below:
 7. Write tests for your Apps and APIs
 
 wait for instructions
+
+Member Names:
+ 1. James nderema
+2. Gladys Barasa
+3. Rinnah Achieng
+4. Malicha Galma
+5. junior Adams
+6. Isaac Parkire
+7. Steve Otieno
+8. Kelvinvictor Ekai
+9. Mwanapwani 
