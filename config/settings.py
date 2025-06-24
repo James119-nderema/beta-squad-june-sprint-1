@@ -26,9 +26,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-=29j9l7r+(ff0j%efa#m=8ommjz6p&)#_7mxs3kp@@@mkv=huz'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1, Nderema.pythonanywhere.com', 'beta-squad.vercel.app', 'www.beta-squad.vercel.app']
 
 
 # Application definition
@@ -86,10 +86,26 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 load_dotenv()
 
-# Replace the DATABASES section of your settings.py with this
-tmpPostgres = urlparse(os.getenv("DATABASE_URL"))
-
+# Replace your existing database configuration with this:
 DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'HOST': os.getenv('DB_HOST'),
+        'PORT': os.getenv('DB_PORT'),
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+        },
+    }
+}
+
+
+# Replace the DATABASES section of your settings.py with this
+#tmpPostgres = urlparse(os.getenv("DATABASE_URL"))
+
+"""DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': tmpPostgres.path.replace('/', ''),
@@ -99,7 +115,7 @@ DATABASES = {
         'PORT': 5432,
     }
 }
-
+"""
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
